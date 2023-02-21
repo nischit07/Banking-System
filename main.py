@@ -25,8 +25,25 @@ class Bank(User):
         self.balance = self.balance + self.amount
         print(f"The balance has been updated to ${self.balance}")
 
+    def withdraw(self, amount):
+        self.amount = amount
+        if self.amount> self.balance:
+            print(f'Insufficient Funds | The available fund to withdraw is: ${self.balance}')
+        else:
+            self.balance = self.balance - self.amount
+            print(f'The balance has beeen updated to ${self.balance}')
+
+    def view_balance(self):
+        self.show_details()
+        print(f'Account Balance: ${self.balance}')
+    
 
 
-# nischit = User('Nischit', 25, 'Male')
+
+nischit = Bank('Nischit', 25, 'Male')
 # nischit.show_details()
-# nischit.deposit(300)
+nischit.deposit(300)
+
+nischit.deposit(700)
+nischit.withdraw(450)
+nischit.view_balance()
